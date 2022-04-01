@@ -20,3 +20,8 @@ Route::get('/', function () {
 
 //Route::view('appointment','index');
 Route::post('addAppointment',[appointmentController::class, 'saveData']);
+Route::view('login','login');
+Route::view('appointment','appointment');
+Route::view('patients','patients');
+Route::view('patient-single','singlePatient');
+Route::view('user','user');
