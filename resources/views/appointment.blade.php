@@ -12,7 +12,7 @@
             <div class="col-lg-8 p-r-0 title-margin-right">
               <div class="page-header">
                 <div class="page-title">
-                  <h1>All Appointment</h1>
+                  <h1>{{$type}}</h1>
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@
                       >
                         <thead>
                           <tr>
-                            <th>#</th>
+                            
                             <th>Date</th>
                             <th>Time</th>
                             <th>Client Name</th>
@@ -54,78 +54,38 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>04-05-2022</td>
-                            <td>9.00 am</td>
-                            <td>Bipu</td>
-                            <td>01758871249</td>
+                          @foreach($appointmentlist as $value)
+                            <tr>
+                            
+                            <td>{{$value['date']}}</td>
+                            <td>{{$value['time']}}</td>
+                            <td>{{$value['name']}}</td>
+                            <td>{{$value['phone']}}</td>
                             <td>
+                              @if($value['status']==0)
                               <div
                                 class="tableStatus bg-cl-light-yellow d-flex justify-content-center align-items-center"
                               >
+
                                 <span class="fw-bold">Pending</span>
                               </div>
-                            </td>
-                            <td>
-                              <div class="employeeTableIcon d-flex">
-                                <div
-                                  class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                  onclick="location.href='profile.html'"
-                                  onclick="location.href='profile.html'"
-                                >
-                                  <i class="ti-plus"></i>
-                                </div>
-                                <div
-                                  class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
-                                >
-                                  <i class="ti-trash"></i>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>04-05-2022</td>
-                            <td>9.00 am</td>
-                            <td>Bipu</td>
-                            <td>01758871249</td>
-                            <td>
+                              @endif
+
+                              @if($value['status']==1)
                               <div
                                 class="tableStatus bg-cl-light-green d-flex justify-content-center align-items-center"
                               >
                                 <span class="fw-bold">Approved</span>
                               </div>
-                            </td>
-                            <td>
-                              <div class="employeeTableIcon d-flex">
-                                <div
-                                  class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                  onclick="location.href='profile.html'"
-                                  onclick="location.href='profile.html'"
-                                >
-                                  <i class="ti-plus"></i>
-                                </div>
-                                <div
-                                  class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
-                                >
-                                  <i class="ti-trash"></i>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>04-05-2022</td>
-                            <td>9.00 am</td>
-                            <td>Bipu</td>
-                            <td>01758871249</td>
-                            <td>
+                              @endif
+
+                              @if($value['status']==2)
                               <div
                                 class="tableStatus bg-cl-light-red d-flex justify-content-center align-items-center"
                               >
                                 <span class="fw-bold">Reject</span>
                               </div>
+                              @endif
                             </td>
                             <td>
                               <div class="employeeTableIcon d-flex">
@@ -144,11 +104,14 @@
                               </div>
                             </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
+                
+
                 <!-- /# card -->
               </div>
               <!-- /# column -->
