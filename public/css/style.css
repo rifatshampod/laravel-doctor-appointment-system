@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/**************************************
+  ===== h1,h2,h3,h4,h5,h6 font size  ====
+  **************************************/
+h1 {
+  font-size: 65px;
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 14px;
+}
+
+small {
+  font-size: 14px;
+}
+.fs10 {
+  font-size: 10px;
+}
+.fs12 {
+  font-size: 12px;
+}
+.fs14 {
+  font-size: 14px;
+}
+.fs16 {
+  font-size: 16px;
+}
+.fs18 {
+  font-size: 18px;
+}
+.fs20 {
+  font-size: 20px;
+}
+.fs36 {
+  font-size: 36px;
+}
+.fs60 {
+  font-size: 60px;
+}
+
+.w-90 {
+  width: 90%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-65 {
+  width: 65%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-35 {
+  width: 35%;
+}
+.w-20 {
+  width: 20% !important;
+}
+.w-15 {
+  width: 15% !important;
+}
+.w-10 {
+  width: 10%;
+}
+
+/***Cursor******/
+.cursor {
+  cursor: pointer;
+}
+
+/***Color Code***/
+.cl-pm {
+  color: #535dcb;
+}
+.cl-grey {
+  color: #8492a6;
+}
+.cl-mat-black {
+  color: #282828;
+}
+.cl-deep-red {
+  color: #fb3449;
+}
+.cl-light-green {
+  color: #2baabc;
+}
+/*******Bg color code********/
+
+.bg-cl-pm {
+  background-color: #535dcb;
+}
+.bg-cl-deep-red {
+  background-color: #fb3449;
+}
+.bg-cl-brown {
+  background-color: #2f38a5;
+}
+.bg-cl-light-green {
+  background-color: #2baabc;
+}
+.bg-cl-light-pink {
+  background-color: #dadcf7;
+}
+
+/***********All Input***********/
+
+input:focus {
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+textarea:focus {
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/*Navigation*/
+.topHeader {
+  box-shadow: 0px 1px 6px rgb(218, 214, 214);
+}
+.logo-img {
+  width: 184px;
+  height: 50px;
+}
+.logo-img img {
+  width: 100%;
+  height: 100%;
+}
+.navSignIn {
+  border-radius: 100px;
+  background-color: #535dcb;
+  border: 1px solid #535dcb;
+  transition: 0.5s ease-in-out;
+}
+.navSignIn:hover {
+  background-color: #fff;
+  transition: 0.5s ease-in-out;
+  border: 1px solid #535dcb;
+  color: black;
+}
+.navSignIn:hover .nav-link {
+  color: black !important;
+}
+
+/*Hero Section*/
+.hero {
+  background: url(../assets/image/heroBg.webp);
+  background-position: center;
+  background-size: cover;
+}
+.heroContent {
+  padding: 150px 0;
+}
+
+.heroButton button {
+  width: 240px;
+  height: 60px;
+  border-radius: 100px;
+  border: 1px solid #fb3449;
+  transition: 0.5s ease-in-out;
+}
+.heroButton button:hover {
+  background-color: transparent;
+  border: 1px solid #fff;
+  transition: 0.5s ease-in-out;
+}
+
+/*AppointMent*/
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #2f38a5 !important;
+  color: white;
+}
+.nav-pills .nav-link {
+  color: rgb(56, 55, 55);
+  font-weight: 600;
+}
+
+.appointActive {
+  background-color: #2baabc;
+}
+.appointActive p {
+  color: white;
+}
+
+/*Footer*/
+.footerSocialIcon {
+  height: 28px;
+  width: 28px;
+  border: 1px solid #535dcb;
+  border-radius: 50%;
+}
+.CopyRight {
+  border-top: 0.5px solid #d2d2d9;
+}
+
+#dycalendar {
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 0px 14px 7px rgba(177, 192, 206, 0.25);
+  border-radius: 10px;
+}
+#dycalendar table {
+  width: 100%;
+  margin-top: 40px;
+  border-spacing: 5px;
+}
+#dycalendar table tr:nth-child(1) td {
+  background: #fff;
+  color: #111;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+#dycalendar table td {
+  /*   color: #fff; */
+  padding: 10px;
+  cursor: pointer;
+  /* border-radius: ; */
+}
+#dycalendar table td:hover {
+  /*   background-color: #fff; */
+  color: #111 !important;
+}
+
+.dycalendar-month-container .dycalendar-target-date,
+.dycalendar-month-container .dycalendar-today-date {
+  background-color: #fff;
+  color: #111 !important;
+}
+.dycalendar-target-date{
+    background-color: #535DCB !important;
+}
+.dycalendar-month-container
+  .dycalendar-header
+  .dycalendar-prev-next-btn.prev-btn {
+  background: #fff;
+  color: #535DCB;
+  width: 44px;
+  height: 38px;
+  left: 4px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.dycalendar-month-container
+  .dycalendar-header
+  .dycalendar-prev-next-btn.next-btn {
+  background: #fff;
+  color: #535DCB;
+  width: 44px;
+  height: 38px;
+  right: 4px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.dycalendar-month-container .dycalendar-span-month-year {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #535DCB;
+}
+
+

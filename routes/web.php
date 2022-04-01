@@ -15,7 +15,8 @@ use App\Http\Controllers\appointmentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
+//Route::view('appointment','index');
 Route::post('addAppointment',[appointmentController::class, 'saveData']);

@@ -28,10 +28,11 @@ class appointmentController extends Controller
         $app->time =$req->input('time');
         $app->save();
 
-        $number=$req->input('phone');;
-        $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
+        //send sms
+        // $number=$req->input('phone');;
+        // $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
 
-        SendSms::send($number,$msg);
+        // SendSms::send($number,$msg);
 
         
         $req->session()->flash('status','New job added successfully');
