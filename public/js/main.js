@@ -5,11 +5,12 @@ $(document).ready(function () {
         var time = $(".appointActive p").text();
         $("#time").val(timeConversionSlicker(time));
     });
-    $(".test").click(function (event) {
+    $(".tabButton").click(function (event) {
 
-        var chamber = $(".active").text();
-        $("#chamber").val(timeConversionSlicker(chamber));
+    var chamber = $(".active").text();
+    $("#chamber").val(timeConversionSlicker(chamber));
     });
+
     $(".day").click(function (e) {
         $date = e.target.id;
         e.target.classList.add("selectedDay")
@@ -59,3 +60,11 @@ $(document).ready(function () {
 }
 
 });
+
+//display on tab
+element.addEventListener("click", tabFunction);
+
+function tabFunction() {
+    document.querySelector(".hideTabPane").style.display = "block";
+}
+

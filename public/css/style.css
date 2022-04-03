@@ -320,3 +320,6 @@ input[type="number"] {
   cursor: pointer;
 }
 
+.hideTabPane{
+  display: none;
+}

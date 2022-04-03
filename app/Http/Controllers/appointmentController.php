@@ -42,7 +42,7 @@ class appointmentController extends Controller
         $number=$req->input('phone');
         $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
 
-        $drNumber='01686520282';
+        $drNumber='01686520282';  //doctor number
         $drMsg="Dear doctor, appointment for ".$req->input('name').", on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
 
 
