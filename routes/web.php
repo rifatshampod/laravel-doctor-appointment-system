@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\appointmentController;
-
+use App\Http\Controllers\ChamberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,9 @@ use App\Http\Controllers\appointmentController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 //Route::view('appointment','index');
 Route::post('addAppointment',[appointmentController::class, 'saveData']);
@@ -29,4 +29,7 @@ Route::get('patients',[appointmentController::class,'fetchPatientData']);
 Route::view('patient-single','singlePatient');
 Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'fetchSinglePatientData']);
 Route::view('user','user');
+Route::get('chamber',[ChamberController::class,'fetchData']);
+
+Route::get('/',[ChamberController::class,'fetchHomeData']);
 

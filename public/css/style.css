@@ -175,7 +175,7 @@ input[type="number"] {
 
 /*Hero Section*/
 .hero {
-  background: url(../assets/image/heroBg.webp);
+  background: url(../assets/image/heroBg.png);
   background-position: center;
   background-size: cover;
 }
@@ -193,6 +193,19 @@ input[type="number"] {
 .heroButton button:hover {
   background-color: transparent;
   border: 1px solid #fff;
+  transition: 0.5s ease-in-out;
+}
+.formButton button {
+  width: 240px;
+  height: 60px;
+  border-radius: 100px;
+  border: 1px solid #535dcb;
+  transition: 0.5s ease-in-out;
+}
+.formButton button:hover {
+  background-color: transparent;
+  border: 1px solid #535dcb;
+  color: #111 !important;
   transition: 0.5s ease-in-out;
 }
 
@@ -244,11 +257,15 @@ input[type="number"] {
   border-radius: 4px;
   font-weight: 600;
 }
-
+.day{
+    cursor: pointer;
+}
+.day:hover,.selectedDay{
+    background-color: rgba(0,0,0,0.5) !important;
+}
 #dycalendar table td {
   /*   color: #fff; */
   padding: 10px;
-  cursor: pointer;
   /* border-radius: ; */
 }
 #dycalendar table td:hover {
@@ -298,4 +315,7 @@ input[type="number"] {
   color: #535DCB;
 }
 
+.cursor{
+  cursor: pointer;
+}
 

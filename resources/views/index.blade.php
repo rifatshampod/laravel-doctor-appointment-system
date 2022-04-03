@@ -103,7 +103,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item navSignIn mx-1 px-3 mb-2">
-                    <a class="nav-link text-white" href="signUp.html"
+                    <a class="nav-link text-white" href="#appointment"
                       >Appointment</a
                     >
                   </li>
@@ -114,26 +114,40 @@
         </div>
       </div>
     </nav>
-    <!-- Nav end
+    <!-- Nav end  -->
     <section class="hero">
       <div class="container">
         <div class="heroContent">
           <div>
-            <h1 class="text-white mb-3">
-              Easy Way to <br />
-              Cure Disease
-            </h1>
+            <h2 class="text-white mb-3">
+              Book appointment to your nearest chamber
+            </h2>
           </div>
           <div class="mb-3">
-            <p class="text-white">
-              The standard chunk of Lorem Ipsum used since the 1500s is
-              reproduced below for those <br />
-              interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum
-              et Malorum" by Cicero <br />
-              are also reproduced in their exact original form, accompanied by
-              English versions from <br />
-              the 1914.
-            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="row my-4">
+                  @foreach ($chamberlist as $item)
+                      <div class="col-lg-6">
+                    <div>
+                      <h3 class="text-white">{{$item['name']}}</h3>
+                    </div>
+                    <div>
+                      <small class="fs18 text-white">{{$item['address']}}</small>
+                    </div>
+                    <div>
+                      <small class="fs18 text-white cursor" onclick="location.href='tel:{{$item['phone']}}'">{{$item['phone']}}</small>
+                    </div>
+                    <div>
+                      <small class="fs18 text-white">{{$item['time']}}</small>
+                    </div>
+                  </div>
+                  @endforeach
+                  
+                  
+                </div>
+              </div>
+            </div>
           </div>
           <div>
             <p class="text-white mb-5">
@@ -143,16 +157,19 @@
           </div>
           <div class="heroButton d-flex">
             <div class="mb-3">
-              <button class="bg-cl-deep-red text-white">
+              <button class="bg-cl-deep-red text-white" onclick="location.href='#appointment'">
                 Make a Appointment
               </button>
             </div>
           </div>
         </div>
       </div>
-    </section>   -->
-    <section class="appointment py-5">
+    </section>   
+    <section class="appointment py-5" id="appointment">
       <div class="container">
+          @if (session('message'))
+                <div class="alert alert-info">{{ session('message') }}</div>
+          @endif
         <div class="row justify-content-center">
           <div class="col-lg-6 mb-5">
             <section>
@@ -169,7 +186,7 @@
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link active"
+                    class="nav-link test"
                     id="pills-home-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-home"
@@ -178,12 +195,12 @@
                     aria-controls="pills-home"
                     aria-selected="true"
                   >
-                    Morning
+                    BSMMU
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    class="nav-link test"
                     id="pills-profile-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-profile"
@@ -192,7 +209,7 @@
                     aria-controls="pills-profile"
                     aria-selected="false"
                   >
-                    Enening
+                    Al Manar Hospital
                   </button>
                 </li>
               </ul>
@@ -214,7 +231,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            09.00 am
+                            09:00 am
                           </p>
                         </div>
                       </div>
@@ -223,7 +240,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            09.15 am
+                            09:15 am
                           </p>
                         </div>
                       </div>
@@ -232,7 +249,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            9.30 am
+                            9:30 am
                           </p>
                         </div>
                       </div>
@@ -241,7 +258,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            9.45 am
+                            9:45 am
                           </p>
                         </div>
                       </div>
@@ -250,7 +267,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.00 am
+                            10:00 am
                           </p>
                         </div>
                       </div>
@@ -259,7 +276,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.15 am
+                            10:15 am
                           </p>
                         </div>
                       </div>
@@ -268,7 +285,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.30 am
+                            10:30 am
                           </p>
                         </div>
                       </div>
@@ -277,7 +294,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.45 am
+                            10:45 am
                           </p>
                         </div>
                       </div>
@@ -286,7 +303,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.00 am
+                            11:00 am
                           </p>
                         </div>
                       </div>
@@ -295,7 +312,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.15 am
+                            11:15 am
                           </p>
                         </div>
                       </div>
@@ -305,7 +322,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.30 am
+                            11:30 am
                           </p>
                         </div>
                       </div>
@@ -314,7 +331,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.45 am
+                            11:45 am
                           </p>
                         </div>
                       </div>
@@ -338,7 +355,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            09.00 pm
+                            09:00 pm
                           </p>
                         </div>
                       </div>
@@ -347,7 +364,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            09.15 pm
+                            09:15 pm
                           </p>
                         </div>
                       </div>
@@ -356,7 +373,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            9.30 pm
+                            9:30 pm
                           </p>
                         </div>
                       </div>
@@ -365,7 +382,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            9.45 pm
+                            9:45 pm
                           </p>
                         </div>
                       </div>
@@ -374,7 +391,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.00 pm
+                            10:00 pm
                           </p>
                         </div>
                       </div>
@@ -383,7 +400,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.15 pm
+                            10:15 pm
                           </p>
                         </div>
                       </div>
@@ -392,7 +409,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.30 pm
+                            10:30 pm
                           </p>
                         </div>
                       </div>
@@ -401,7 +418,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            10.45 pm
+                            10:45 pm
                           </p>
                         </div>
                       </div>
@@ -410,7 +427,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.00 pm
+                            11:00 pm
                           </p>
                         </div>
                       </div>
@@ -419,7 +436,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.15 pm
+                            11:15 pm
                           </p>
                         </div>
                       </div>
@@ -429,7 +446,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.30 pm
+                            11:30 pm
                           </p>
                         </div>
                       </div>
@@ -438,7 +455,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            11.45 pm
+                            11:45 pm
                           </p>
                         </div>
                       </div>
@@ -453,7 +470,7 @@
               <h2 class="fw-bold text-center mb-4">Enter Your Details</h2>
               <form action="addAppointment" method="POST">
                 @csrf
-                <div class="row">
+                <div class="row justify-content-center">
                   <div class="col-lg-6">
                     <div class="mb-2">
                       <label class="mb-2 fw-bold">Name</label>
@@ -474,7 +491,7 @@
                       />
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-6">
                     <div class="mb-2">
                       <label class="mb-2 fw-bold">Email</label>
                       <input
@@ -486,9 +503,19 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="mb-2">
+                      <label class="mb-2 fw-bold">Chamber</label>
+                      <input
+                        type="text" name="chember" id="chamber"
+                        class="form-control w-100 bg-cl-ash2"
+                        
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-2">
                       <label class="mb-2 fw-bold">Date</label>
                       <input
-                        type="date" name="date"
+                        type="date" name="date" id="date"
                         class="form-control w-100 bg-cl-ash2"
                         placeholder="Enter Your Name"
                       />
@@ -505,7 +532,7 @@
                       />
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 mb-3">
                     <div class="">
                       <label class="mb-2 fw-bold">Symptoms(optional)</label>
                       <textarea name="symptoms"
@@ -514,8 +541,16 @@
                       ></textarea>
                     </div>
                   </div>
+                  <div class="col-lg-3">
+                  <div class="formButton d-flex">
+                  <div class="mb-3">
+                  <button class="bg-cl-pm text-white">
+                  Make a Appointment
+                 </button>
+                 </div>
+          </div>
+                  </div>
                 </div>
-                  <button   class="nav-link active" type="submit">Submit Appointment</button>
               </form>
             </div>
           </div>

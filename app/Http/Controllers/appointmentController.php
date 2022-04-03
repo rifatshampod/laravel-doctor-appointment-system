@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Appointment;
+use Carbon\Carbon;
 use nirab\boomcastsms\Models\SendSms;
 
 
@@ -16,16 +17,23 @@ class appointmentController extends Controller
             'name'=>'required | min:3',
             'phone'=>'required',
             'date'=>'required',
-            'time'=>'required'  
+            'time'=>'required'
         ]);
-        
+        $time= Carbon::createFromFormat('g:ia', $req->input('time'));
+        $date=$req->input('date');
+        //check if Appointment time is available on that day
+        $search=Appointment::where('date', $date)->where('time', $time)->first();
+        if($search){
+            return redirect()->back()->with('message','Time is not available on that day. please select another time');
+        }
+        else{
         $app = new Appointment;
         $app->name = $req->input('name');
         $app->phone=$req->input('phone');
         $app->email=$req->input('email');
         $app->symptoms=$req->input('symptoms');
-        $app->date =$req->input('date');
-        $app->time =$req->input('time');
+        $app->date =$date;
+        $app->time =$time;
         $app->save();
 
         //send sms
@@ -34,9 +42,9 @@ class appointmentController extends Controller
 
         // SendSms::send($number,$msg);
 
-        
         $req->session()->flash('status','New job added successfully');
-        return redirect('/');
+        return redirect('/')->with('message', 'Appointment added successfully');
+        }
     }
 
     function fetchData(Request $req)

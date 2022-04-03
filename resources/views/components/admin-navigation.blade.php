@@ -26,6 +26,9 @@
             <li>
               <a href="user"><i class="ti-user"></i> User</a>
             </li>
+            <li>
+              <a href="chamber"><i class="ti-user"></i> Chamber</a>
+            </li>
           </ul>
         </div>
       </div>
