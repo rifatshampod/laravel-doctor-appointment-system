@@ -38,6 +38,7 @@
   <body>
     <!-- Nav start -->
     <nav>
+      <!--
       <div class="topHeader">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center py-3">
@@ -76,7 +77,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>  -->
       <!-- Bottom Header-->
       <div class="bottomHeader" id="navbar">
         <div class="container">
@@ -182,25 +183,25 @@
           </div>
           <div class="col-lg-6 mb-5">
             <div>
-              <h4 class="fw-bold mb-4">Select Your Time Slot</h4>
+              <h4 class="fw-bold mb-4">Select Chamber & Time Slot</h4>
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link test"
+                    class="nav-link tabButton me-3"
                     id="pills-home-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-home"
                     type="button"
                     role="tab"
                     aria-controls="pills-home"
-                    aria-selected="true"
+                    aria-selected="true" onclick="tabFunction()"
                   >
                     BSMMU
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link test"
+                    class="nav-link tabButton"
                     id="pills-profile-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-profile"
@@ -220,12 +221,49 @@
                   role="tabpanel"
                   aria-labelledby="pills-home-tab"
                 >
-                  <div>
+                  <div class="hideTabPane">
+                    <!--
                     <p class="cl-mat-black">
                       <i class="fa fa-check cl-light-green"></i> Available for
                       Appointment
-                    </p>
+                    </p>  -->
                     <div class="row">
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:00 am
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:15 am
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:30 am
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:45 am
+                          </p>
+                        </div>
+                      </div>
                       <div class="col-lg-3">
                         <div class="appointTime bg-cl-light-pink rounded-3">
                           <p
@@ -249,7 +287,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            9:30 am
+                            09:30 am
                           </p>
                         </div>
                       </div>
@@ -258,7 +296,7 @@
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
-                            9:45 am
+                            09:45 am
                           </p>
                         </div>
                       </div>
@@ -280,6 +318,7 @@
                           </p>
                         </div>
                       </div>
+
                       <div class="col-lg-3">
                         <div class="appointTime bg-cl-light-pink rounded-3">
                           <p
@@ -335,6 +374,53 @@
                           </p>
                         </div>
                       </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            12:00 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            12:15 pm
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            12:30 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            12:45 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            01:00 pm
+                          </p>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -345,117 +431,89 @@
                   aria-labelledby="pills-profile-tab"
                 >
                   <div>
-                    <p class="cl-mat-black">
+                    {{-- <p class="cl-mat-black">
                       <i class="fa fa-check cl-light-green"></i> Available for
                       Appointment
-                    </p>
+                    </p> --}}
                     <div class="row">
                       <div class="col-lg-3">
                         <div class="appointTime bg-cl-light-pink rounded-3">
                           <p
                             class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
                           >
+                            07:00 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            07:15 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            07:30 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            07:45 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:00 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:15 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:30 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
+                            08:45 pm
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="appointTime bg-cl-light-pink rounded-3">
+                          <p
+                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
+                          >
                             09:00 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            09:15 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            9:30 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            9:45 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            10:00 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            10:15 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            10:30 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            10:45 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            11:00 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            11:15 pm
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            11:30 pm
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="appointTime bg-cl-light-pink rounded-3">
-                          <p
-                            class="d-flex justify-content-center align-items-center py-3 cl-mat-black cursor"
-                          >
-                            11:45 pm
                           </p>
                         </div>
                       </div>
@@ -478,6 +536,7 @@
                         type="text" name="name"
                         class="form-control w-100 bg-cl-ash2"
                         placeholder="Enter Your Name"
+                        required
                       />
                     </div>
                   </div>
@@ -488,6 +547,7 @@
                         type="number" name="phone"
                         class="form-control w-100 bg-cl-ash2"
                         placeholder="Enter Your Phone Number"
+                        required
                       />
                     </div>
                   </div>
@@ -505,8 +565,10 @@
                     <div class="mb-2">
                       <label class="mb-2 fw-bold">Chamber</label>
                       <input
-                        type="text" name="chember" id="chamber"
+                        type="text" name="chamber" id="chamber"
                         class="form-control w-100 bg-cl-ash2"
+                        placeholder="Select chamber from above"
+                        required readonly
                         
                       />
                     </div>
@@ -517,7 +579,8 @@
                       <input
                         type="date" name="date" id="date"
                         class="form-control w-100 bg-cl-ash2"
-                        placeholder="Enter Your Name"
+                        placeholder="Add date from above"
+                        required
                       />
                     </div>
                   </div>
@@ -528,7 +591,7 @@
                         type="text" name="time"
                         id="time"
                         class="form-control w-100 bg-cl-ash2 d-flex justify-content-center align-items-center"
-                        placeholder="Appointment Time"
+                        placeholder="Add time from above" required readonly
                       />
                     </div>
                   </div>

@@ -47,6 +47,7 @@
                             
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Chamber</th>
                             <th>Client Name</th>
                             <th>Phone</th>
                             <th>Status</th>
@@ -59,6 +60,7 @@
                             
                             <td>{{$value['date']}}</td>
                             <td>{{$value['time']}}</td>
+                            <td>{{$value['chamber']}}</td>
                             <td>{{$value['name']}}</td>
                             <td>{{$value['phone']}}</td>
                             <td>

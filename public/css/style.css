@@ -217,6 +217,7 @@ input[type="number"] {
   color: white;
 }
 .nav-pills .nav-link {
+  border: 1px solid #2f38a5;
   color: rgb(56, 55, 55);
   font-weight: 600;
 }
@@ -319,3 +320,6 @@ input[type="number"] {
   cursor: pointer;
 }
 
+.hideTabPane{
+  display: none;
+}
