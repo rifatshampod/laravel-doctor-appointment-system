@@ -21,7 +21,12 @@ Route::get('/', function () {
 //Route::view('appointment','index');
 Route::post('addAppointment',[appointmentController::class, 'saveData']);
 Route::view('login','login');
-Route::view('appointment','appointment');
-Route::view('patients','patients');
+// Route::view('appointment','appointment');
+Route::get('appointment',[appointmentController::class,'fetchData']);
+Route::get('all-appointment',[appointmentController::class,'fetchAllData']);
+// Route::view('patients','patients');
+Route::get('patients',[appointmentController::class,'fetchPatientData']);
 Route::view('patient-single','singlePatient');
+Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'fetchSinglePatientData']);
 Route::view('user','user');
+

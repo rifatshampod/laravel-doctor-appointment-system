@@ -44,7 +44,6 @@
                       >
                         <thead>
                           <tr>
-                            <th>#</th>
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Email</th>
@@ -52,16 +51,16 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Bipu</td>
-                            <td>01758871249</td>
-                            <td>arifbipu@gmail.com</td>
+                          @foreach ($patientlist as $item)
+                              <tr>
+                            <td>{{$item['name']}}</td>
+                            <td>{{$item['phone']}}</td>
+                            <td>{{$item['email']}}</td>
                             <td>
                               <div class="employeeTableIcon d-flex">
                                 <div
                                   class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                  onclick="location.href='singlePatient.html'"
+                                  onclick="location.href='patient-single={{$item['name']}}={{$item['phone']}}'"
                                 >
                                   <i class="ti-eye"></i>
                                 </div>
@@ -78,58 +77,9 @@
                               </div>
                             </td>
                           </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>Bipu</td>
-                            <td>01758871249</td>
-                            <td>arifbipu@gmail.com</td>
-                            <td>
-                              <div class="employeeTableIcon d-flex">
-                                <div
-                                  class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                   onclick="location.href='singlePatient.html'"
-                                >
-                                  <i class="ti-eye"></i>
-                                </div>
-                                <div
-                                  class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
-                                >
-                                  <i class="ti-trash"></i>
-                                </div>
-                                <div
-                                  class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1"
-                                >
-                                  <i class="ti-pencil-alt"></i>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>Bipu</td>
-                            <td>01758871249</td>
-                            <td>arifbipu@gmail.com</td>
-                            <td>
-                              <div class="employeeTableIcon d-flex">
-                                <div
-                                  class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                   onclick="location.href='singlePatient.html'"
-                                >
-                                  <i class="ti-eye"></i>
-                                </div>
-                                <div
-                                  class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
-                                >
-                                  <i class="ti-trash"></i>
-                                </div>
-                                <div
-                                  class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1"
-                                >
-                                  <i class="ti-pencil-alt"></i>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
+                          @endforeach
+                          
+                          
                         </tbody>
                       </table>
                     </div>

@@ -41,19 +41,19 @@
                       <div class="col-lg-4">
                         <div>
                           <h5>Name</h5>
-                          <p>Arif Bipu</p>
+                          <p>{{$patient->name}}</p>
                         </div>
                       </div>
                       <div class="col-lg-4">
                         <div>
                           <h5>Email</h5>
-                          <p>arifbipu@gmail.com</p>
+                          <p>{{$patient->email}}</p>
                         </div>
                       </div>
                       <div class="col-lg-4">
                         <div>
                           <h5>Phone</h5>
-                          <p>+8801887980841</p>
+                          <p>{{$patient->phone}}</p>
                         </div>
                       </div>
                     </div>
@@ -77,51 +77,42 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>25-5-2022</td>
-                            <td>10.30 pm</td>
-                            <td>Something</td>
+                          @foreach ($appointments as $item)
+                              <tr>
+                            <td>{{$item['id']}}</td>
+                            <td>{{$item['date']}}</td>
+                            <td>{{$item['time']}}</td>
+                            <td>{{$item['symptoms']}}</td>
                             <td>
-                                <div class="float-right">
+                                @if($item['status']==0)
+                              <div
+                                class="tableStatus bg-cl-light-yellow d-flex justify-content-center align-items-center"
+                              >
+
+                                <span class="fw-bold ">Pending</span>
+                              </div>
+                              @endif
+
+                              @if($item['status']==1)
                               <div
                                 class="tableStatus bg-cl-light-green d-flex justify-content-center align-items-center"
                               >
                                 <span class="fw-bold">Approved</span>
                               </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>25-5-2022</td>
-                            <td>10.30 pm</td>
-                            <td>Something</td>
-                            <td>
-                                <div class="float-right">
-                              <div
-                                class="tableStatus bg-cl-light-yellow d-flex justify-content-center align-items-center"
-                              >
-                                <span class="fw-bold">Pending</span>
-                              </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>25-5-2022</td>
-                            <td>10.30 pm</td>
-                            <td>Something</td>
-                            <td>
-                                <div class="float-right">
+                              @endif
+
+                              @if($item['status']==2)
                               <div
                                 class="tableStatus bg-cl-light-red d-flex justify-content-center align-items-center"
                               >
                                 <span class="fw-bold">Reject</span>
                               </div>
-                              </div>
+                              @endif
                             </td>
                           </tr>
+                          @endforeach
+                          
+                          
                         </tbody>
                       </table>
                     </div>

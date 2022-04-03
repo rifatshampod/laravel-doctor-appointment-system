@@ -12,7 +12,12 @@
             <li class="label">Main</li>
             <li>
               <a href="appointment"
-                ><i class="ti-calendar"></i>Appointment</a
+                ><i class="ti-calendar"></i>Upcoming Appointment</a
+              >
+            </li>
+            <li>
+              <a href="all-appointment"
+                ><i class="ti-calendar"></i>All Appointments</a
               >
             </li>
             <li>
