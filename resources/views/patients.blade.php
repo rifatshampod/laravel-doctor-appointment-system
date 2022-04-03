@@ -44,7 +44,6 @@
                       >
                         <thead>
                           <tr>
-                            
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Email</th>
@@ -54,7 +53,6 @@
                         <tbody>
                           @foreach ($patientlist as $item)
                               <tr>
-                            
                             <td>{{$item['name']}}</td>
                             <td>{{$item['phone']}}</td>
                             <td>{{$item['email']}}</td>
@@ -62,7 +60,7 @@
                               <div class="employeeTableIcon d-flex">
                                 <div
                                   class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                  onclick="location.href='singlePatient.html'"
+                                  onclick="location.href='patient-single={{$item['name']}}={{$item['phone']}}'"
                                 >
                                   <i class="ti-eye"></i>
                                 </div>

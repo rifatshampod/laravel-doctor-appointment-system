@@ -61,4 +61,24 @@ class appointmentController extends Controller
         ->get();
         return view('patients', ['patientlist' => $patientList]);
     }
+
+    function fetchSinglePatientData($slug, $phone_slug)
+    {  
+    
+
+        if(Appointment::where('name',$slug)->exists())
+        {
+            $patient = Appointment::where('name',$slug)->where('phone',$phone_slug)->first();
+            $appointments = Appointment::where('name',$slug)
+            ->where('phone',$phone_slug)
+            ->get();
+
+            return view('singlePatient',compact('appointments'))->with('patient',$patient);
+        }
+        else{
+
+            return redirect('/')->with('status',"The link is broken");
+        }
+    }
+
 }
