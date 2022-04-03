@@ -17,6 +17,7 @@ class appointmentController extends Controller
             'name'=>'required | min:3',
             'phone'=>'required',
             'date'=>'required',
+            'chamber'=>'required',
             'time'=>'required'
         ]);
         $time= Carbon::createFromFormat('g:ia', $req->input('time'));
@@ -31,16 +32,22 @@ class appointmentController extends Controller
         $app->name = $req->input('name');
         $app->phone=$req->input('phone');
         $app->email=$req->input('email');
+        $app->chamber = $req->input('chamber');
         $app->symptoms=$req->input('symptoms');
         $app->date =$date;
         $app->time =$time;
         $app->save();
 
         //send sms
-        // $number=$req->input('phone');;
-        // $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
+        $number=$req->input('phone');
+        $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
 
-        // SendSms::send($number,$msg);
+        $drNumber='01686520282';
+        $drMsg="Dear doctor, appointment for ".$req->input('name').", on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
+
+
+        SendSms::send($number,$msg);
+        SendSms::send($drNumber,$drMsg);
 
         $req->session()->flash('status','New job added successfully');
         return redirect('/')->with('message', 'Appointment added successfully');
