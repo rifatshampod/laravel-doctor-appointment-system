@@ -83,6 +83,12 @@
         count = 1;
         while (c <= 6) {
             td = document.createElement("td");
+            td.setAttribute('class', 'day')
+            td.setAttribute(
+                "id",
+                option.year+'-'+ eval(option.month + 1)+'-'+count
+
+            );
             td.innerHTML = count;
             if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                 td.setAttribute("class", "dycalendar-today-date");
@@ -105,6 +111,12 @@
                     return table;
                 }
                 td = document.createElement('td');
+                td.setAttribute("class", "day");
+                td.setAttribute(
+                    "id",
+                    option.year + "-" +eval( option.month+1) + "-" + count
+                );
+
                 td.innerHTML = count;
                 if (data.today.date === count && data.today.monthIndex === data.monthIndex && option.highlighttoday === true) {
                     td.setAttribute("class", "dycalendar-today-date");
