@@ -640,6 +640,8 @@
         </div>
         <div class="copyRightContentRight">
           <div class="footerIcon d-flex">
+            <a href="appointment">Admin Login</a>
+            <!--
             <div
               class="footerSocialIcon d-flex justify-content-center align-items-center cursor me-3"
             >
@@ -659,7 +661,7 @@
               class="footerSocialIcon d-flex justify-content-center align-items-center cursor"
             >
               <i class="fab fa-youtube cl-pm"></i>
-            </div>
+            </div>  -->
           </div>
         </div>
       </div>

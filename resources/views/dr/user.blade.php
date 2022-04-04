@@ -34,24 +34,25 @@
             <div class="row">
               <div class="col-lg-6">
               <div class="card">
-                <form action="">
+                <form method="POST" action="createuser">
+                  @csrf
                     <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control input-default" placeholder="Name" required>
+                            <input type="text" name="name" class="form-control input-default" placeholder="Name" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control input-default" placeholder="Email" required>
+                            <input type="email" name="email" class="form-control input-default" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control input-default" placeholder="password" required>
+                            <input type="password" name="password" class="form-control input-default @error('password') is-invalid @enderror" placeholder="password" required>
                         </div>
                     </div>
                     </div>
@@ -80,10 +81,11 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
+                          @foreach ($userlist as $item)
+                              <tr>
+                            <td>{{$item['id']}}</td>
+                            <td>{{$item['name']}}</td>
+                            <td>{{$item['email']}}</td>
                             <td>
                                 <div class="employeeTableIcon d-flex">
                                     <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
@@ -98,60 +100,9 @@
                                 </div>
                             </td>
                           </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
-                            <td>
-                                <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-pencil-alt"></i>
-                                    </div>
-                                </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
-                            <td>
-                                <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-pencil-alt"></i>
-                                    </div>
-                                </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
-                            <td>
-                                <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-pencil-alt"></i>
-                                    </div>
-                                </div>
-                            </td>
-                          </tr>
+                          @endforeach
+                          
+                         
                         </tbody>
                       </table>
                     </div>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\appointmentController;
 use App\Http\Controllers\ChamberController;
+use App\Http\Controllers\createUser;
 use App\Models\User;
 
 Auth::routes();
@@ -23,6 +24,7 @@ Route::get('all-appointment',[appointmentController::class,'fetchAllData']); //s
 Route::get('patients',[appointmentController::class,'fetchPatientData']); //show all patients
 Route::view('patient-single','singlePatient'); 
 Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'fetchSinglePatientData']);
-Route::view('user','dr/user');
+Route::get('user',[createUser::class,'showUser']);
 Route::get('chamber',[ChamberController::class,'fetchData']);
+Route::post('createuser',[createUser::class,'makeUser']);
 });
