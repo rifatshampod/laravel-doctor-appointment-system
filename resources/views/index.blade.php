@@ -170,7 +170,17 @@
       <div class="container">
           @if (session('message'))
                 <div class="alert alert-info">{{ session('message') }}</div>
-          @endif
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <div class="row justify-content-center">
           <div class="col-lg-6 mb-5">
             <section>

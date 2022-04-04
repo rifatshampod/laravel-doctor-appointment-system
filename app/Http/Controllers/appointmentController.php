@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 use nirab\boomcastsms\Models\SendSms;
 
 
@@ -13,21 +14,20 @@ class appointmentController extends Controller
 {
     function saveData(Request $req)
     {
+         $date=$req->input('date');
         $req->validate([
             'name'=>'required | min:3',
             'phone'=>'required',
             'date'=>'required',
-            'chamber'=>'required',
-            'time'=>'required'
+            'time'=> [
+                'required',
+                Rule::unique('appointments')
+                    ->where('date', $date)
+            ]
         ]);
         $time= Carbon::createFromFormat('g:ia', $req->input('time'));
-        $date=$req->input('date');
-        //check if Appointment time is available on that day
-        $search=Appointment::where('date', $date)->where('time', $time)->first();
-        if($search){
-            return redirect()->back()->with('message','Time is not available on that day. please select another time');
-        }
-        else{
+        
+        
         $app = new Appointment;
         $app->name = $req->input('name');
         $app->phone=$req->input('phone');
@@ -39,19 +39,19 @@ class appointmentController extends Controller
         $app->save();
 
         //send sms
-        $number=$req->input('phone');
-        $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
+        // $number=$req->input('phone');
+        // $msg="Dear ".$req->input('name').", your appointment on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
 
-        $drNumber='01686520282';  //doctor number
-        $drMsg="Dear doctor, appointment for ".$req->input('name').", on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
+        // $drNumber='01686520282';  //doctor number
+        // $drMsg="Dear doctor, appointment for ".$req->input('name').", on ".$req->input('date')." at ".$req->input('time')." is submitted for approval. Thank you";
 
 
-        SendSms::send($number,$msg);
-        SendSms::send($drNumber,$drMsg);
+        // SendSms::send($number,$msg);
+        // SendSms::send($drNumber,$drMsg);
 
         $req->session()->flash('status','New job added successfully');
         return redirect('/')->with('message', 'Appointment added successfully');
-        }
+        
     }
 
     function fetchData(Request $req)
@@ -60,21 +60,21 @@ class appointmentController extends Controller
         $appointmentList = Appointment::orderBy('date','ASC')
         ->where('date','>',$mytime)
         ->get();
-        return view('appointment', ['appointmentlist' => $appointmentList,'type'=>'Upcoming Appointments']);
+        return view('dr/appointment', ['appointmentlist' => $appointmentList,'type'=>'Upcoming Appointments']);
     }
 
     function fetchAllData(Request $req)
     {
         $mytime =date("Y-m-d");
         $appointmentList = Appointment::all();
-        return view('appointment', ['appointmentlist' => $appointmentList,'type'=>'All Appointments']);
+        return view('dr/appointment', ['appointmentlist' => $appointmentList,'type'=>'All Appointments']);
     }
 
     function fetchPatientData(Request $req)
     {  
         $patientList = Appointment::groupBy('name','phone')
         ->get();
-        return view('patients', ['patientlist' => $patientList]);
+        return view('dr/patients', ['patientlist' => $patientList]);
     }
 
     function fetchSinglePatientData($slug, $phone_slug)
@@ -88,7 +88,7 @@ class appointmentController extends Controller
             ->where('phone',$phone_slug)
             ->get();
 
-            return view('singlePatient',compact('appointments'))->with('patient',$patient);
+            return view('dr/singlePatient',compact('appointments'))->with('patient',$patient);
         }
         else{
 
