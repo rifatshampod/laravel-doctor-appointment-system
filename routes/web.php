@@ -28,7 +28,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         if(Auth::user()->exists() ){
 			$user = User::where('id',Auth::id())->first();
        
-            return view('user', compact('user'));
+            return view('dr/user', compact('user'));
         
         } else{
 			

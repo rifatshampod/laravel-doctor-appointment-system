@@ -197,7 +197,7 @@
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link tabButton me-3"
+                    class="nav-link tabButton me-3 tabButtonText1"
                     id="pills-home-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-home"
@@ -211,7 +211,7 @@
                 </li>
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link tabButton"
+                    class="nav-link tabButton tabButtonText2"
                     id="pills-profile-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-profile"
