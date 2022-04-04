@@ -8,11 +8,11 @@
     <div class="content-wrap">
       <div class="main">
         <div class="container-fluid">
-          <div class="row justify-content-center">
+          <div class="row">
             <div class="col-lg-8 p-r-0 title-margin-right">
               <div class="page-header">
                 <div class="page-title">
-                  <h1>Single Patient</h1>
+                  <h1>{{$type}}</h1>
                 </div>
               </div>
             </div>
@@ -33,35 +33,10 @@
           </div>
           <!-- /# row -->
           <section id="main-content">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-12">
                 <div class="card">
-                  <div>
-                    <div class="row mb-4">
-                      <div class="col-lg-4">
-                        <div>
-                          <h5>Name</h5>
-                          <p>{{$patient->name}}</p>
-                        </div>
-                      </div>
-                      <div class="col-lg-4">
-                        <div>
-                          <h5>Email</h5>
-                          <p>{{$patient->email}}</p>
-                        </div>
-                      </div>
-                      <div class="col-lg-4">
-                        <div>
-                          <h5>Phone</h5>
-                          <p>{{$patient->phone}}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div class="bootstrap-data-table-panel">
-                      <div class="mb-4">
-                          <h5>Appointment History</h5>
-                      </div>
                     <div class="table-responsive">
                       <table
                         id="bootstrap-data-table-export"
@@ -69,31 +44,36 @@
                       >
                         <thead>
                           <tr>
-                            <th>#</th>
+                            
                             <th>Date</th>
                             <th>Time</th>
-                            <th>Symptoms</th>
+                            <th>Chamber</th>
+                            <th>Client Name</th>
+                            <th>Phone</th>
                             <th>Status</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($appointments as $item)
-                              <tr>
-                            <td>{{$item['id']}}</td>
-                            <td>{{$item['date']}}</td>
-                            <td>{{$item['time']}}</td>
-                            <td>{{$item['symptoms']}}</td>
+                          @foreach($appointmentlist as $value)
+                            <tr>
+                            
+                            <td>{{$value['date']}}</td>
+                            <td>{{$value['time']}}</td>
+                            <td>{{$value['chamber']}}</td>
+                            <td>{{$value['name']}}</td>
+                            <td>{{$value['phone']}}</td>
                             <td>
-                                @if($item['status']==0)
+                              @if($value['status']==0)
                               <div
                                 class="tableStatus bg-cl-light-yellow d-flex justify-content-center align-items-center"
                               >
 
-                                <span class="fw-bold ">Pending</span>
+                                <span class="fw-bold">Pending</span>
                               </div>
                               @endif
 
-                              @if($item['status']==1)
+                              @if($value['status']==1)
                               <div
                                 class="tableStatus bg-cl-light-green d-flex justify-content-center align-items-center"
                               >
@@ -101,7 +81,7 @@
                               </div>
                               @endif
 
-                              @if($item['status']==2)
+                              @if($value['status']==2)
                               <div
                                 class="tableStatus bg-cl-light-red d-flex justify-content-center align-items-center"
                               >
@@ -109,15 +89,30 @@
                               </div>
                               @endif
                             </td>
+                            <td>
+                              <div class="employeeTableIcon d-flex">
+                                <div
+                                  class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
+                                  onclick="location.href='patient-single={{$value['name']}}={{$value['phone']}}'"
+                                >
+                                  <i class="ti-eye"></i>
+                                </div>
+                                <div
+                                  class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
+                                >
+                                  <i class="ti-trash"></i>
+                                </div>
+                              </div>
+                            </td>
                           </tr>
                           @endforeach
-                          
-                          
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
+                
+
                 <!-- /# card -->
               </div>
               <!-- /# column -->
@@ -127,21 +122,7 @@
         </div>
       </div>
     </div>
-    <!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="assets/js/lib/menubar/sidebar.js"></script>
-    <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <!-- bootstrap -->
-    <!-- bootstrap -->
 
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <!-- scripit init-->
-    <script src="assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="assets/js/lib/data-table/datatables-init.js"></script>
+    <x-script-component/>
   </body>
 </html>

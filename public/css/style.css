@@ -323,3 +323,8 @@ input[type="number"] {
 .hideTabPane{
   display: none;
 }
+
+/*Logout Button*/
+/* .logOutButton{
+  cursor: pointer !important;
+} */

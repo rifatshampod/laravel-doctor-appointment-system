@@ -29,6 +29,12 @@
             <li>
               <a href="chamber"><i class="ti-user"></i> Chamber</a>
             </li>
+            <!--    log out code 
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit">Logout</button>
+              </form> 
+              --->
           </ul>
         </div>
       </div>
@@ -48,32 +54,12 @@
             </div>
             <div class="float-right">
               <div class="dropdown dib">
-                <div class="header-icon" data-toggle="dropdown">
-                  <div></div>
-                  <span class="user-avatar">
-                    John
-                    <i class="ti-angle-down f-s-10"></i>
-                  </span>
-                  <div
-                    class="drop-down dropdown-profile dropdown-menu dropdown-menu-right"
-                  >
-                    <div class="dropdown-content-body">
-                      <ul>
-                        <li>
-                          <a href="#">
-                            <i class="ti-user"></i>
-                            <span>Profile</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="ti-power-off"></i>
-                            <span>Logout</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                <div class="header-icon">
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="border-0 px-4 rounded bg-danger text-white" style="cursor: pointer;" type="submit">Logout</button>
+              </form>
+
                 </div>
               </div>
             </div>

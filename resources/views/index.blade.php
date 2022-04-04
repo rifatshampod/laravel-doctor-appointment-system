@@ -170,7 +170,17 @@
       <div class="container">
           @if (session('message'))
                 <div class="alert alert-info">{{ session('message') }}</div>
-          @endif
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <div class="row justify-content-center">
           <div class="col-lg-6 mb-5">
             <section>
@@ -187,7 +197,7 @@
               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link tabButton me-3"
+                    class="nav-link tabButton me-3 tabButtonText1"
                     id="pills-home-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-home"
@@ -201,7 +211,7 @@
                 </li>
                 <li class="nav-item" role="presentation">
                   <button
-                    class="nav-link tabButton"
+                    class="nav-link tabButton tabButtonText2"
                     id="pills-profile-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#pills-profile"

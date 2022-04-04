@@ -10,7 +10,7 @@ class ChamberController extends Controller
     function fetchData(Request $req)
     {  
         $chamberList = Chamber::all();
-        return view('chamber', ['chamberlist' => $chamberList]);
+        return view('dr/chamber', ['chamberlist' => $chamberList]);
     }
 
     function fetchHomeData(Request $req)

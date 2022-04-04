@@ -5,12 +5,19 @@ $(document).ready(function () {
         var time = $(".appointActive p").text();
         $("#time").val(timeConversionSlicker(time));
     });
-    $(".tabButton").click(function (event) {
 
-    var chamber = $(".active").text();
+
+    $(".tabButtonText1").click(function (event) {
+    var chamber = $(".tabButtonText1").text();
     $("#chamber").val(timeConversionSlicker(chamber));
     });
+    $(".tabButtonText2").click(function (event) {
 
+        var chamber = $(".tabButtonText2").text();
+        $("#chamber").val(timeConversionSlicker(chamber));
+    });
+
+    
     $(".day").click(function (e) {
         $date = e.target.id;
         e.target.classList.add("selectedDay")

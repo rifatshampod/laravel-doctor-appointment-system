@@ -3,33 +3,26 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\appointmentController;
 use App\Http\Controllers\ChamberController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Models\User;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Auth::routes();
 
-//Route::view('appointment','index');
-Route::post('addAppointment',[appointmentController::class, 'saveData']);
-Route::view('login','login');
-// Route::view('appointment','appointment');
-Route::get('appointment',[appointmentController::class,'fetchData']);
-Route::get('all-appointment',[appointmentController::class,'fetchAllData']);
-// Route::view('patients','patients');
-Route::get('patients',[appointmentController::class,'fetchPatientData']);
-Route::view('patient-single','singlePatient');
+//visitor routes
+Route::get('/',[ChamberController::class,'fetchHomeData']); //show dynamic data in homepage
+Route::post('addAppointment',[appointmentController::class, 'saveData']); //save appointment info to database
+//Route::view('login','login'); //login view
+
+
+//admin routes
+
+
+//=============  User =============//
+Route::group(['middleware' => ['web', 'auth']], function(){
+    Route::get('appointment',[appointmentController::class,'fetchData'])->middleware('auth');; //show upcoming appointments
+Route::get('all-appointment',[appointmentController::class,'fetchAllData']); //show all appointments
+Route::get('patients',[appointmentController::class,'fetchPatientData']); //show all patients
+Route::view('patient-single','singlePatient'); 
 Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'fetchSinglePatientData']);
-Route::view('user','user');
+Route::view('user','dr/user');
 Route::get('chamber',[ChamberController::class,'fetchData']);
-
-Route::get('/',[ChamberController::class,'fetchHomeData']);
-
+});
