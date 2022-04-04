@@ -69,11 +69,12 @@
                                 >
                                   <i class="ti-trash"></i>
                                 </div>
+                                <!--
                                 <div
                                   class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1"
                                 >
                                   <i class="ti-pencil-alt"></i>
-                                </div>
+                                </div>  -->
                               </div>
                             </td>
                           </tr>
@@ -94,21 +95,6 @@
         </div>
       </div>
     </div>
-    <!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="assets/js/lib/menubar/sidebar.js"></script>
-    <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <!-- bootstrap -->
-    <!-- bootstrap -->
-
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <!-- scripit init-->
-    <script src="assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="assets/js/lib/data-table/datatables-init.js"></script>
+    <x-script-component/>
   </body>
 </html>

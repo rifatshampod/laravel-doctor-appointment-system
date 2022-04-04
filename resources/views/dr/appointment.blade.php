@@ -93,10 +93,9 @@
                               <div class="employeeTableIcon d-flex">
                                 <div
                                   class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1"
-                                  onclick="location.href='profile.html'"
-                                  onclick="location.href='profile.html'"
+                                  onclick="location.href='patient-single={{$value['name']}}={{$value['phone']}}'"
                                 >
-                                  <i class="ti-plus"></i>
+                                  <i class="ti-eye"></i>
                                 </div>
                                 <div
                                   class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
@@ -123,21 +122,7 @@
         </div>
       </div>
     </div>
-    <!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="assets/js/lib/menubar/sidebar.js"></script>
-    <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <!-- bootstrap -->
-    <!-- bootstrap -->
 
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <!-- scripit init-->
-    <script src="assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="assets/js/lib/data-table/datatables-init.js"></script>
+    <x-script-component/>
   </body>
 </html>

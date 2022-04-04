@@ -5,8 +5,9 @@ $(document).ready(function () {
         var time = $(".appointActive p").text();
         $("#time").val(timeConversionSlicker(time));
     });
-    $(".tabButtonText1").click(function (event) {
 
+
+    $(".tabButtonText1").click(function (event) {
     var chamber = $(".tabButtonText1").text();
     $("#chamber").val(timeConversionSlicker(chamber));
     });
@@ -16,6 +17,7 @@ $(document).ready(function () {
         $("#chamber").val(timeConversionSlicker(chamber));
     });
 
+    
     $(".day").click(function (e) {
         $date = e.target.id;
         e.target.classList.add("selectedDay")

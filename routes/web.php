@@ -14,25 +14,15 @@ Route::post('addAppointment',[appointmentController::class, 'saveData']); //save
 
 
 //admin routes
-Route::get('appointment',[appointmentController::class,'fetchData']); //show upcoming appointments
+
+
+//=============  User =============//
+Route::group(['middleware' => ['web', 'auth']], function(){
+    Route::get('appointment',[appointmentController::class,'fetchData'])->middleware('auth');; //show upcoming appointments
 Route::get('all-appointment',[appointmentController::class,'fetchAllData']); //show all appointments
 Route::get('patients',[appointmentController::class,'fetchPatientData']); //show all patients
 Route::view('patient-single','singlePatient'); 
 Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'fetchSinglePatientData']);
-Route::view('user','user');
+Route::view('user','dr/user');
 Route::get('chamber',[ChamberController::class,'fetchData']);
-
-//=============  User =============//
-Route::group(['middleware' => ['web', 'auth']], function(){
-    Route::get('user', function(){
-        if(Auth::user()->exists() ){
-			$user = User::where('id',Auth::id())->first();
-       
-            return view('dr/user', compact('user'));
-        
-        } else{
-			
-            return view('/');
-        }
-    });
 });
