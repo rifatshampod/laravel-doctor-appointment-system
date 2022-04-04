@@ -6,7 +6,7 @@ use App\Http\Controllers\ChamberController;
 use App\Http\Controllers\createUser;
 use App\Models\User;
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 //visitor routes
 Route::get('/',[ChamberController::class,'fetchHomeData']); //show dynamic data in homepage

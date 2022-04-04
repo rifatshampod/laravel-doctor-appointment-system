@@ -63,7 +63,7 @@
                                 
                                 <div
                                   class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1"
-                                >
+                                data-toggle="modal" data-target="#modalEdit">
                                   <i class="ti-pencil-alt"></i>
                                 </div>
                               </div>
@@ -85,6 +85,45 @@
           </section>
         </div>
       </div>
+      <!-- Modal Edit -->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <h5 class="text-center">Edit Chamber</h5>
+            </div>
+            <div class="col-lg-6">
+            <div class="form-group">
+            <input type="text" name="name" class="form-control input-default" placeholder="Name" required>
+            </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="form-group">
+            <input type="number" name="name" class="form-control input-default" placeholder="Phone" required>
+            </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="form-group">
+            <input type="text" name="name" class="form-control input-default" placeholder="Address" required>
+            </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="form-group">
+            <input type="text" name="name" class="form-control input-default" placeholder="Time" required>
+            </div>
+            </div>
+          </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="border-0 px-4 py-2 rounded bg-primary text-white" style="cursor: pointer;">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     <x-script-component/>
   </body>
