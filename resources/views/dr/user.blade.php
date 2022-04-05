@@ -32,26 +32,37 @@
           <!-- /# row -->
           <section id="main-content">
             <div class="row">
+              <div class="col-lg-12">
+              @if (Session::get('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{Session::get('status')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            @endif
+            </div>
               <div class="col-lg-6">
               <div class="card">
-                <form action="">
+                <form method="POST" action="createuser">
+                  @csrf
                     <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control input-default" placeholder="Name" required>
+                            <input type="text" name="name" class="form-control input-default" placeholder="Name" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control input-default" placeholder="Email" required>
+                            <input type="email" name="email" class="form-control input-default" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control input-default" placeholder="password" required>
+                            <input type="password" name="password" class="form-control input-default @error('password') is-invalid @enderror" placeholder="password" required>
                         </div>
                     </div>
                     </div>
@@ -80,78 +91,32 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
+                          @foreach ($userlist as $item)
+                              <tr>
+                            <td>{{$item['id']}}</td>
+                            <td>{{$item['name']}}</td>
+                            <td>{{$item['email']}}</td>
                             <td>
                                 <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1" data-toggle="modal" data-target="#deleteModal">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1" >
+                                    
+                                    
+                                    <button
+                                      value="{{$item['id']}}"
+                                        class="employeeTableIconDiv editBtn Icon3 d-flex justify-content-center align-items-center mr-1"
+                                      >
                                         <i class="ti-pencil-alt"></i>
-                                    </div>
+                                    </button>
+                                    <button 
+                                    value="{{$item['id']}}"
+                                    class="employeeTableIconDiv deleteBtn Icon2 d-flex justify-content-center align-items-center mr-1">
+                                        <i class="ti-trash"></i>
+                                    </button>
                                 </div>
                             </td>
                           </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
-                            <td>
-                                <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-pencil-alt"></i>
-                                    </div>
-                                </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
-                            <td>
-                                <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-pencil-alt"></i>
-                                    </div>
-                                </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>01</td>
-                            <td>Arif Bipu</td>
-                            <td>arifbipiu@gmail.com</td>
-                            <td>
-                                <div class="employeeTableIcon d-flex">
-                                    <div class="employeeTableIconDiv Icon1 d-flex justify-content-center align-items-center mr-1" onclick="location.href='profile.html'" onclick="location.href='profile.html'">
-                                        <i class="ti-eye"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-trash"></i>
-                                    </div>
-                                    <div class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1">
-                                        <i class="ti-pencil-alt"></i>
-                                    </div>
-                                </div>
-                            </td>
-                          </tr>
+                          @endforeach
+                          
+                         
                         </tbody>
                       </table>
                     </div>
@@ -165,25 +130,109 @@
           </section>
         </div>
       </div>
-            <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="py-5">
-        <div class=" d-flex justify-content-center mb-3">
-          <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete?</h5>
+            <!-- delete Modal -->
+      <div class="modal fade" id="deleteModal" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="py-5">
+              <div class=" d-flex justify-content-center mb-3">
+                <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete?</h5>
+              </div>
+              <form action="delete-user" method="POST">
+                @csrf
+                @method('DELETE')
+              <input type="hidden" name="delete_id" id="delete_id">
+
+              <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary px-5 mx-2" data-dismiss="modal">No</button>
+              <button type="submit" class="btn btn-danger px-5 mx-2">Yes Delete</button>
+              
+            </div>
+            </form>
+            </div>
+          </div>
         </div>
-        <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary px-5 mx-2" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger px-5 mx-2">Yes</button>
       </div>
+
+      <!-- Modal Edit -->
+      <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form action="update-user" method="POST">
+                @csrf
+                @method('PUT')
+
+                <input type="hidden" name="user_id" id="user_id" />
+                <div class="row justify-content-center">
+                  <div class="col-lg-12">
+                    <h5 class="text-center">Edit User</h5>
+                  </div>
+                  <div class="col-lg-6">
+                  <div class="form-group">
+                  <input type="text" name="name" id="name" class="form-control input-default" placeholder="Name" required>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                  <div class="form-group">
+                  <input type="email" name="email" id="email" class="form-control input-default" placeholder="Email" required>
+                  </div>
+                  </div>
+                  <div class="col-lg-12">
+                  <div class="form-group">
+                  <input type="password" name="password" id="password" class="form-control input-default" placeholder="Password" required>
+                  </div>
+                  </div>
+                  
+                </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="border-0 px-4 mx-2 py-2 rounded bg-danger text-white" style="cursor: pointer;">Cancel</button>
+                    <button type="submit" class="border-0 px-4 mx-2 py-2 rounded bg-primary text-white" style="cursor: pointer;">Submit</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
       
     </div>
 
     <x-script-component/>
+
+    <script>
+
+      $(document).ready(function(){
+
+        $(document).on('click', '.deleteBtn', function(){
+          var user_id = $(this).val();
+          console.log(user_id);
+          jQuery.noConflict(); 
+          $('#deleteModal').modal('show');
+          $('#delete_id').val(user_id);
+          
+        });
+
+        $(document).on('click', '.editBtn', function(){
+          
+          var user_id = $(this).val();
+          console.log(user_id);
+          jQuery.noConflict(); 
+          $('#modalEdit').modal('show');
+          
+
+          $.ajax({
+            url: '/edit-user' + user_id,
+            type: "GET",
+            success:function(response){
+              console.log(response);
+              $('#name').val(response.user.name);
+              $('#email').val(response.user.email);
+              $('#password').val(response.user.password);
+              $('#user_id').val(user_id);
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

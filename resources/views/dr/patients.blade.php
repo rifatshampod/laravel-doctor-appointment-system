@@ -64,11 +64,12 @@
                                 >
                                   <i class="ti-eye"></i>
                                 </div>
+                                <!--
                                 <div
                                   class="employeeTableIconDiv Icon2 d-flex justify-content-center align-items-center mr-1"
                                 >
                                   <i class="ti-trash"></i>
-                                </div>
+                                </div>  -->
                                 <!--
                                 <div
                                   class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1"

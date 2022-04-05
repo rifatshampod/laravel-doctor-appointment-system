@@ -18,6 +18,7 @@ $(document).ready(function () {
     });
 
     
+    
     $(".day").click(function (e) {
         $date = e.target.id;
         e.target.classList.add("selectedDay")
@@ -74,4 +75,3 @@ element.addEventListener("click", tabFunction);
 function tabFunction() {
     document.querySelector(".hideTabPane").style.display = "block";
 }
-

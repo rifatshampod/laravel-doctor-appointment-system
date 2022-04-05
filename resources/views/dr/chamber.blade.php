@@ -9,8 +9,20 @@
       <div class="main">
         <div class="container-fluid">
           <div class="row">
+            <div class="col-lg-12">
+              @if (Session::get('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{Session::get('status')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            @endif
+            </div>
+            
             <div class="col-lg-8 p-r-0 title-margin-right">
               <div class="page-header">
+                
                 <div class="page-title">
                   <h1>All Chamber</h1>
                 </div>
@@ -61,11 +73,12 @@
                             <td>
                               <div class="employeeTableIcon">
                                 
-                                <div
-                                  class="employeeTableIconDiv Icon3 d-flex justify-content-center align-items-center mr-1"
+                                <button
+                                value="{{$item['id']}}"
+                                  class="employeeTableIconDiv editBtn Icon3 d-flex justify-content-center align-items-center mr-1"
                                 >
                                   <i class="ti-pencil-alt"></i>
-                                </div>
+                              </button>
                               </div>
                             </td>
                           </tr>
@@ -85,7 +98,80 @@
           </section>
         </div>
       </div>
-    </div>
+      <!-- Modal Edit -->
+      <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form action="update-chamber" method="POST">
+                @csrf
+                @method('PUT')
+
+                <input type="hidden" name="chamber_id" id="chamber_id" />
+                <div class="row justify-content-center">
+                  <div class="col-lg-12">
+                    <h5 class="text-center">Edit Chamber</h5>
+                  </div>
+                  <div class="col-lg-6">
+                  <div class="form-group">
+                  <input type="text" name="name" id="name" class="form-control input-default" placeholder="Name" required>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                  <div class="form-group">
+                  <input type="number" name="phone" id="phone" class="form-control input-default" placeholder="Phone" required>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                  <div class="form-group">
+                  <input type="text" name="address" id="address" class="form-control input-default" placeholder="Address" required>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                  <div class="form-group">
+                  <input type="text" name="time" id="time" class="form-control input-default" placeholder="Time" required>
+                  </div>
+                  </div>
+                </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="border-0 px-4 mx-2 py-2 rounded bg-danger text-white" style="cursor: pointer;">Cancel</button>
+                    <button type="submit" class="border-0 px-4 mx-2 py-2 rounded bg-primary text-white" style="cursor: pointer;">Submit</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    
+    
+
     <x-script-component/>
+    
+    <script>
+      $(document).ready(function(){
+        $(document).on('click', '.editBtn', function(){
+          
+          var chamber_id = $(this).val();
+          console.log(chamber_id);
+          jQuery.noConflict(); 
+          $('#modalEdit').modal('show');
+
+          $.ajax({
+            url: '/edit-chamber' + chamber_id,
+            type: "GET",
+            success:function(response){
+              console.log(response);
+              $('#name').val(response.chamber.name);
+              $('#phone').val(response.chamber.phone);
+              $('#address').val(response.chamber.address);
+              $('#time').val(response.chamber.time);
+              $('#chamber_id').val(chamber_id);
+            }
+          });
+        });
+      });
+    </script>
+    
   </body>
 </html>

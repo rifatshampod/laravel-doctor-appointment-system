@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\appointmentController;
 use App\Http\Controllers\ChamberController;
+use App\Http\Controllers\createUser;
 use App\Models\User;
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 //visitor routes
 Route::get('/',[ChamberController::class,'fetchHomeData']); //show dynamic data in homepage
@@ -23,6 +24,12 @@ Route::get('all-appointment',[appointmentController::class,'fetchAllData']); //s
 Route::get('patients',[appointmentController::class,'fetchPatientData']); //show all patients
 Route::view('patient-single','singlePatient'); 
 Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'fetchSinglePatientData']);
-Route::view('user','dr/user');
+Route::get('user',[createUser::class,'showUser']);
 Route::get('chamber',[ChamberController::class,'fetchData']);
+Route::post('createuser',[createUser::class,'makeUser']);
+Route::get('edit-chamber{id}', [ChamberController::class,'editData']);
+Route::put('update-chamber', [ChamberController::class,'updateData']);
+
+//Route::get('edit-user{id}', [createUser::class,'editData']);
+Route::delete('delete-user', [createUser::class,'deleteData']);
 });
