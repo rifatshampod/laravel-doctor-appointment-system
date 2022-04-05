@@ -27,4 +27,9 @@ Route::get('patient-single={slug}={phone_slug}',[appointmentController::class,'f
 Route::get('user',[createUser::class,'showUser']);
 Route::get('chamber',[ChamberController::class,'fetchData']);
 Route::post('createuser',[createUser::class,'makeUser']);
+Route::get('edit-chamber{id}', [ChamberController::class,'editData']);
+Route::put('update-chamber', [ChamberController::class,'updateData']);
+
+//Route::get('edit-user{id}', [createUser::class,'editData']);
+Route::delete('delete-user', [createUser::class,'deleteData']);
 });
