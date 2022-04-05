@@ -75,7 +75,7 @@
                                 
                                 <button
                                 value="{{$item['id']}}"
-                                  class="employeeTableIconDiv editBtn Icon3 d-flex justify-content-center align-items-center mr-1"
+                                  class="employeeTableIconDiv border-0 editBtn Icon3 d-flex justify-content-center align-items-center mr-1"
                                 >
                                   <i class="ti-pencil-alt"></i>
                               </button>
@@ -134,7 +134,7 @@
                   </div>
                 </div>
                   <div class="d-flex justify-content-center">
-                    <button type="button" class="border-0 px-4 mx-2 py-2 rounded bg-danger text-white" style="cursor: pointer;">Cancel</button>
+                    <button type="button" class="border-0 px-4 mx-2 py-2 rounded bg-danger text-white" style="cursor: pointer;" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="border-0 px-4 mx-2 py-2 rounded bg-primary text-white" style="cursor: pointer;">Submit</button>
                   </div>
               </form>

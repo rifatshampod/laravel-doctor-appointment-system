@@ -102,13 +102,13 @@
                                     
                                     <button
                                       value="{{$item['id']}}"
-                                        class="employeeTableIconDiv editBtn Icon3 d-flex justify-content-center align-items-center mr-1"
+                                        class="employeeTableIconDiv border-0 editBtn Icon3 d-flex justify-content-center align-items-center mr-1"
                                       >
                                         <i class="ti-pencil-alt"></i>
                                     </button>
                                     <button 
                                     value="{{$item['id']}}"
-                                    class="employeeTableIconDiv deleteBtn Icon2 d-flex justify-content-center align-items-center mr-1">
+                                    class="employeeTableIconDiv border-0 deleteBtn Icon2 d-flex justify-content-center align-items-center mr-1">
                                         <i class="ti-trash"></i>
                                     </button>
                                 </div>
