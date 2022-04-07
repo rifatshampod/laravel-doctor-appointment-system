@@ -186,7 +186,7 @@
                   
                 </div>
                   <div class="d-flex justify-content-center">
-                    <button type="button" class="border-0 px-4 mx-2 py-2 rounded bg-danger text-white" style="cursor: pointer;">Cancel</button>
+                    <button type="button" class="border-0 px-4 mx-2 py-2 rounded bg-danger text-white" style="cursor: pointer;" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="border-0 px-4 mx-2 py-2 rounded bg-primary text-white" style="cursor: pointer;">Submit</button>
                   </div>
               </form>
@@ -204,11 +204,11 @@
       $(document).ready(function(){
 
         $(document).on('click', '.deleteBtn', function(){
-          var user_id = $(this).val();
-          console.log(user_id);
+          var delete_id = $(this).val();
+          console.log(delete_id);
           jQuery.noConflict(); 
           $('#deleteModal').modal('show');
-          $('#delete_id').val(user_id);
+          $('#delete_id').val(delete_id);
           
         });
 
@@ -219,7 +219,6 @@
           jQuery.noConflict(); 
           $('#modalEdit').modal('show');
           
-
           $.ajax({
             url: '/edit-user' + user_id,
             type: "GET",
