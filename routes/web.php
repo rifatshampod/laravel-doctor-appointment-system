@@ -30,6 +30,10 @@ Route::post('createuser',[createUser::class,'makeUser']);
 Route::get('edit-chamber{id}', [ChamberController::class,'editData']);
 Route::put('update-chamber', [ChamberController::class,'updateData']);
 
-//Route::get('edit-user{id}', [createUser::class,'editData']);
+Route::get('edit-user{id}', [createUser::class,'editData']);
 Route::delete('delete-user', [createUser::class,'deleteData']);
+});
+
+Route::get('/admin', function () {
+    return redirect('/appointment');
 });
